@@ -1,7 +1,7 @@
 # Assignment 02: Experiment Tracking
 
 **Course:** Applied Machine Learning  
-**Student Name:** Arnab Bera  
+**Student Name:** Shuvodeep Dutta
 **Submission Date:** 15 Feb 2026  
 
 ---
@@ -239,3 +239,4 @@ This assignment successfully demonstrates:
 - Reproducible machine learning workflow  
 
 The project ensures full traceability of both data versions and model experiments.
+
