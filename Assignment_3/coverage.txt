@@ -1,0 +1,109 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.12, pytest-9.0.2, pluggy-1.6.0
+rootdir: /Users/cr7./Downloads/AppliedMachineLearning-main/Assignment-03
+plugins: cov-7.0.0
+collected 49 items
+
+integration_test.py .F..F.F..........................................    [100%]
+
+=================================== FAILURES ===================================
+________________________ test_score_prediction[spam_10] ________________________
+
+model = MultinomialNB(alpha=0.1)
+case = {'expected': True, 'id': 'spam_10', 'text': 'Get rich quick with this amazing investment opportunity.'}
+
+    @pytest.mark.parametrize("case", SCORE_CASES, ids=[c["id"] for c in SCORE_CASES])
+    def test_score_prediction(model, case):
+    
+        pred, prop = score(case["text"], model, 0.5)
+    
+        assert isinstance(pred, bool), f"{case['id']} prediction is not bool"
+        assert isinstance(prop, float), f"{case['id']} propensity is not float"
+        assert 0 <= prop <= 1, f"{case['id']} propensity out of range"
+>       assert pred == case["expected"], \
+            f"{case['id']} expected {case['expected']}, got {pred}"
+E       AssertionError: spam_10 expected True, got False
+E       assert False == True
+
+integration_test.py:53: AssertionError
+________________________ test_score_prediction[spam_13] ________________________
+
+model = MultinomialNB(alpha=0.1)
+case = {'expected': True, 'id': 'spam_13', 'text': 'Limited offer! Buy one get one free. Shop immediately.'}
+
+    @pytest.mark.parametrize("case", SCORE_CASES, ids=[c["id"] for c in SCORE_CASES])
+    def test_score_prediction(model, case):
+    
+        pred, prop = score(case["text"], model, 0.5)
+    
+        assert isinstance(pred, bool), f"{case['id']} prediction is not bool"
+        assert isinstance(prop, float), f"{case['id']} propensity is not float"
+        assert 0 <= prop <= 1, f"{case['id']} propensity out of range"
+>       assert pred == case["expected"], \
+            f"{case['id']} expected {case['expected']}, got {pred}"
+E       AssertionError: spam_13 expected True, got False
+E       assert False == True
+
+integration_test.py:53: AssertionError
+________________________ test_score_prediction[spam_15] ________________________
+
+model = MultinomialNB(alpha=0.1)
+case = {'expected': True, 'id': 'spam_15', 'text': 'Earn money from home easily. Sign up now.'}
+
+    @pytest.mark.parametrize("case", SCORE_CASES, ids=[c["id"] for c in SCORE_CASES])
+    def test_score_prediction(model, case):
+    
+        pred, prop = score(case["text"], model, 0.5)
+    
+        assert isinstance(pred, bool), f"{case['id']} prediction is not bool"
+        assert isinstance(prop, float), f"{case['id']} propensity is not float"
+        assert 0 <= prop <= 1, f"{case['id']} propensity out of range"
+>       assert pred == case["expected"], \
+            f"{case['id']} expected {case['expected']}, got {pred}"
+E       AssertionError: spam_15 expected True, got False
+E       assert False == True
+
+integration_test.py:53: AssertionError
+=============================== warnings summary ===============================
+../../../../../Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sklearn/base.py:463
+integration_test.py::test_score_prediction[spam_9]
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator MultinomialNB from version 1.7.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+    warnings.warn(
+
+../../../../../Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sklearn/base.py:463
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator TfidfTransformer from version 1.7.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+    warnings.warn(
+
+../../../../../Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sklearn/base.py:463
+  /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator TfidfVectorizer from version 1.7.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+    warnings.warn(
+
+integration_test.py:84
+  /Users/cr7./Downloads/AppliedMachineLearning-main/Assignment-03/integration_test.py:84: PytestUnknownMarkWarning: Unknown pytest.mark.integration - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.integration
+
+integration_test.py:109
+  /Users/cr7./Downloads/AppliedMachineLearning-main/Assignment-03/integration_test.py:109: PytestUnknownMarkWarning: Unknown pytest.mark.integration - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.integration
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================ tests coverage ================================
+______________ coverage: platform darwin, python 3.13.12-final-0 _______________
+
+Name                  Stmts   Miss  Cover   Missing
+---------------------------------------------------
+app.py                   26      4    85%   19, 28, 33, 51
+integration_test.py      42      0   100%
+predict.py               21     21     0%   3-40
+score.py                 15      2    87%   32-33
+test.py                  39     39     0%   1-59
+---------------------------------------------------
+TOTAL                   143     66    54%
+=========================== short test summary info ============================
+FAILED integration_test.py::test_score_prediction[spam_10] - AssertionError: ...
+FAILED integration_test.py::test_score_prediction[spam_13] - AssertionError: ...
+FAILED integration_test.py::test_score_prediction[spam_15] - AssertionError: ...
+=================== 3 failed, 46 passed, 6 warnings in 5.12s ===================
